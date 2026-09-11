@@ -1,11 +1,12 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="k1shnn — Visual Creator creating photography, reels and cinematic content.">
+    <meta name="description"
+        content="k1shnn — Visual Creator creating photography, reels and cinematic content.">
 
     <title>k1shnn | Visual Creator</title>
 
@@ -14,89 +15,115 @@
 
 <body>
 
-    <!-- BACKGROUND -->
-    <!-- ANIMATED BACKGROUND -->
-<div class="animated-background">
+    <!-- =========================================
+         ANIMATED BACKGROUND
+    ========================================== -->
 
-    <div class="ambient ambient-one"></div>
-    <div class="ambient ambient-two"></div>
+    <div class="animated-background">
 
-    <svg class="light-trails" viewBox="0 0 1600 900" preserveAspectRatio="none">
+        <div class="ambient ambient-one"></div>
+        <div class="ambient ambient-two"></div>
 
-        <defs>
+        <svg class="light-trails"
+             viewBox="0 0 1600 900"
+             preserveAspectRatio="none">
 
-            <filter id="blur">
-                <feGaussianBlur stdDeviation="5"/>
-            </filter>
+            <defs>
 
-            <filter id="heavyBlur">
-                <feGaussianBlur stdDeviation="18"/>
-            </filter>
+                <filter id="trailBlur">
+                    <feGaussianBlur stdDeviation="7" />
+                </filter>
 
-        </defs>
+                <filter id="heavyBlur">
+                    <feGaussianBlur stdDeviation="20" />
+                </filter>
 
-        <!-- Main glowing trails -->
+            </defs>
 
-        <path
-            class="trail glow"
-            d="M-100 230 C180 330 300 80 560 250 S950 390 1150 170 S1450 80 1750 -40"
-        />
+            <!-- TRAIL 1 -->
 
-        <path
-            class="trail"
-            d="M-100 230 C180 330 300 80 560 250 S950 390 1150 170 S1450 80 1750 -40"
-        />
+            <path
+                class="trail glow"
+                d="M-100 230 C180 330 300 80 560 250 S950 390 1150 170 S1450 80 1750 -40"
+            />
 
-        <path
-            class="trail glow"
-            d="M-100 650 C180 530 360 760 600 620 S930 500 1130 650 S1450 760 1750 550"
-        />
+            <path
+                class="trail"
+                d="M-100 230 C180 330 300 80 560 250 S950 390 1150 170 S1450 80 1750 -40"
+            />
 
-        <path
-            class="trail"
-            d="M-100 650 C180 530 360 760 600 620 S930 500 1130 650 S1450 760 1750 550"
-        />
 
-        <path
-            class="trail glow"
-            d="M-150 430 C100 350 260 480 500 420 S820 300 1080 420 S1400 500 1750 330"
-        />
+            <!-- TRAIL 2 -->
 
-        <path
-            class="trail"
-            d="M-150 430 C100 350 260 480 500 420 S820 300 1080 420 S1400 500 1750 330"
-        />
+            <path
+                class="trail glow"
+                d="M-100 650 C180 530 360 760 600 620 S930 500 1130 650 S1450 760 1750 550"
+            />
 
-    </svg>
+            <path
+                class="trail"
+                d="M-100 650 C180 530 360 760 600 620 S930 500 1130 650 S1450 760 1750 550"
+            />
 
-    <!-- Tiny particles -->
 
-    <div class="particles">
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
+            <!-- TRAIL 3 -->
+
+            <path
+                class="trail glow"
+                d="M-150 430 C100 350 260 480 500 420 S820 300 1080 420 S1400 500 1750 330"
+            />
+
+            <path
+                class="trail"
+                d="M-150 430 C100 350 260 480 500 420 S820 300 1080 420 S1400 500 1750 330"
+            />
+
+        </svg>
+
+
+        <!-- FLOATING PARTICLES -->
+
+        <div class="particles">
+
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+
+        </div>
+
     </div>
 
-</div>
 
-    <!-- NAVIGATION -->
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
+
     <nav>
-        <a href="#" class="logo">k1shnn<span>.</span></a>
+
+        <a href="#" class="logo">
+            k1shnn<span>.</span>
+        </a>
 
         <div class="links">
+
             <a href="#work">Work</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
+
         </div>
+
     </nav>
 
 
-    <!-- HERO -->
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
     <main>
 
         <section class="hero">
@@ -104,80 +131,148 @@
             <div class="hero-content">
 
                 <div class="hero-label">
+
                     <span class="status-dot"></span>
+
                     VISUAL CREATOR
+
                 </div>
 
+
                 <h1>
+
                     Building myself<br>
+
                     <span>as a creator.</span>
+
                 </h1>
 
+
                 <p class="description">
+
                     Photography • Reels • Cinematic Content
+
                 </p>
 
+
                 <div class="hero-buttons">
+
                     <a class="button primary-button" href="#work">
+
                         Explore my work
+
                         <span>↗</span>
+
                     </a>
 
+
                     <a class="button secondary-button" href="#contact">
+
                         Let's connect
+
                     </a>
+
                 </div>
 
             </div>
 
+
             <div class="scroll-indicator">
+
                 <span></span>
+
                 SCROLL TO EXPLORE
+
             </div>
 
         </section>
 
 
-        <!-- WORK -->
+        <!-- =========================================
+             WORK
+        ========================================== -->
+
         <section id="work" class="section work">
 
             <div class="section-heading">
+
                 <div>
-                    <p class="small">01 — SELECTED WORK</p>
-                    <h2>Visuals.</h2>
+
+                    <p class="small">
+                        01 — SELECTED WORK
+                    </p>
+
+                    <h2>
+                        Visuals.
+                    </h2>
+
                 </div>
 
+
                 <p class="section-intro">
+
                     A collection of moments, frames and ideas
                     I've captured along the way.
+
                 </p>
+
             </div>
 
 
             <div class="gallery">
 
+
                 <div class="card card-large">
-                    <img src="photo1.jpeg" alt="Photography project 1">
+
+                    <img
+                        src="photo1.jpeg"
+                        alt="Photography project 1"
+                    >
+
                     <div class="card-overlay">
+
                         <span>01</span>
+
                         <span>Photography</span>
+
                     </div>
+
                 </div>
 
+
                 <div class="card">
-                    <img src="photo2.jpeg" alt="Photography project 2">
+
+                    <img
+                        src="photo2.jpeg"
+                        alt="Photography project 2"
+                    >
+
                     <div class="card-overlay">
+
                         <span>02</span>
+
                         <span>Photography</span>
+
                     </div>
+
                 </div>
 
+
                 <div class="card">
-                    <img src="photo3.jpeg" alt="Photography project 3">
+
+                    <img
+                        src="photo3.jpeg"
+                        alt="Photography project 3"
+                    >
+
                     <div class="card-overlay">
+
                         <span>03</span>
+
                         <span>Photography</span>
+
                     </div>
+
                 </div>
 
             </div>
@@ -185,52 +280,95 @@
         </section>
 
 
-        <!-- ABOUT -->
+        <!-- =========================================
+             ABOUT
+        ========================================== -->
+
         <section id="about" class="section about">
 
-            <p class="small">02 — ABOUT ME</p>
+            <p class="small">
+                02 — ABOUT ME
+            </p>
+
 
             <div class="about-layout">
 
                 <h2>
+
                     Creating visuals
-                    <span>that feel different.</span>
+
+                    <span>
+                        that feel different.
+                    </span>
+
                 </h2>
+
 
                 <div class="about-text">
 
                     <p>
+
                         I'm a visual creator focused on photography,
                         reels and cinematic content.
+
                     </p>
 
+
                     <p>
+
                         I'm constantly experimenting, learning and
                         building my own visual style — one project
                         at a time.
+
                     </p>
+
 
                     <div class="skills">
 
+
                         <div class="skill">
+
                             <span>01</span>
-                            <p>Photography</p>
+
+                            <p>
+                                Photography
+                            </p>
+
                         </div>
 
+
                         <div class="skill">
+
                             <span>02</span>
-                            <p>Reels</p>
+
+                            <p>
+                                Reels
+                            </p>
+
                         </div>
 
+
                         <div class="skill">
+
                             <span>03</span>
-                            <p>Cinematic Content</p>
+
+                            <p>
+                                Cinematic Content
+                            </p>
+
                         </div>
 
+
                         <div class="skill">
+
                             <span>04</span>
-                            <p>Visual Editing</p>
+
+                            <p>
+                                Visual Editing
+                            </p>
+
                         </div>
+
 
                     </div>
 
@@ -241,54 +379,100 @@
         </section>
 
 
-        <!-- CONTACT -->
+        <!-- =========================================
+             CONTACT
+        ========================================== -->
+
         <section id="contact" class="section contact">
 
-            <p class="small">03 — LET'S WORK TOGETHER</p>
+            <p class="small">
+                03 — LET'S WORK TOGETHER
+            </p>
+
 
             <div class="contact-content">
 
                 <h2>
+
                     Have an idea?
-                    <span>Let's create it.</span>
+
+                    <span>
+                        Let's create it.
+                    </span>
+
                 </h2>
 
+
                 <p>
+
                     Got a project, collaboration or idea?
                     Let's turn it into something worth seeing.
+
                 </p>
+
 
                 <div class="contact-buttons">
 
-                    <a class="contact-button" href="mailto:visual.k1shn@gmail.com">
+
+                    <a
+                        class="contact-button"
+                        href="mailto:fw.k1shn@example.com"
+                    >
+
                         <span>✉</span>
+
                         Email Me
+
                         <strong>↗</strong>
+
                     </a>
 
-                    <a class="contact-button"
-                       href="https://instagram.com/lwkk1shn"
-                       target="_blank"
-                       rel="noopener noreferrer">
+
+                    <a
+                        class="contact-button"
+                        href="https://instagram.com/lwkk1shn"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
                         <span>◎</span>
+
                         Instagram
+
                         <strong>↗</strong>
+
                     </a>
 
-                    <a class="contact-button"
-                       href="https://wa.me/971503956792"
-                       target="_blank"
-                       rel="noopener noreferrer">
+
+                    <a
+                        class="contact-button"
+                        href="https://wa.me/971503956792"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
                         <span>◌</span>
+
                         WhatsApp
+
                         <strong>↗</strong>
+
                     </a>
 
-                    <a class="contact-button" href="tel:+971503956792">
+
+                    <a
+                        class="contact-button"
+                        href="tel:+971503956792"
+                    >
+
                         <span>⌕</span>
+
                         Call Me
+
                         <strong>↗</strong>
+
                     </a>
+
 
                 </div>
 
@@ -299,84 +483,134 @@
     </main>
 
 
-    <!-- FOOTER -->
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
     <footer>
 
         <div class="footer-top">
 
-            <a href="#" class="logo">k1shnn<span>.</span></a>
+            <a href="#" class="logo">
 
-            <p>Building myself as a creator.</p>
+                k1shnn<span>.</span>
+
+            </a>
+
+
+            <p>
+
+                Building myself as a creator.
+
+            </p>
 
         </div>
 
+
         <div class="footer-bottom">
 
-            <p>© 2026 k1shnn. All rights reserved.</p>
+            <p>
 
-            <a href="#">Back to top ↑</a>
+                © 2026 k1shnn. All rights reserved.
+
+            </p>
+
+
+            <a href="#">
+
+                Back to top ↑
+
+            </a>
 
         </div>
 
     </footer>
 
 
-    <!-- SCROLL REVEAL -->
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
     <script>
 
-        const revealElements = document.querySelectorAll(
-            ".section, .card, .skill, .contact-button"
-        );
+        /* -----------------------------------------
+           SCROLL REVEAL
+        ------------------------------------------ */
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-
-                entries.forEach((entry) => {
-
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.12
-            }
-        );
-
-        revealElements.forEach((element) => {
-            element.classList.add("reveal");
-            observer.observe(element);
-        });
+        const revealElements =
+            document.querySelectorAll(
+                ".section, .card, .skill, .contact-button"
+            );
 
 
-        // Smooth scrolling
+        const observer =
+            new IntersectionObserver(
 
-        document.querySelectorAll('a[href^="#"]').forEach((link) => {
+                (entries) => {
 
-            link.addEventListener("click", function(e) {
+                    entries.forEach((entry) => {
 
-                const target = document.querySelector(
-                    this.getAttribute("href")
-                );
+                        if (entry.isIntersecting) {
 
-                if (target) {
+                            entry.target.classList.add("visible");
 
-                    e.preventDefault();
+                        }
 
-                    target.scrollIntoView({
-                        behavior: "smooth"
                     });
 
+                },
+
+                {
+                    threshold: 0.12
                 }
 
-            });
+            );
+
+
+        revealElements.forEach((element) => {
+
+            element.classList.add("reveal");
+
+            observer.observe(element);
 
         });
+
+
+        /* -----------------------------------------
+           SMOOTH SCROLL
+        ------------------------------------------ */
+
+        document
+            .querySelectorAll('a[href^="#"]')
+            .forEach((link) => {
+
+                link.addEventListener(
+                    "click",
+                    function (e) {
+
+                        const target =
+                            document.querySelector(
+                                this.getAttribute("href")
+                            );
+
+
+                        if (target) {
+
+                            e.preventDefault();
+
+                            target.scrollIntoView({
+                                behavior: "smooth"
+                            });
+
+                        }
+
+                    }
+                );
+
+            });
 
     </script>
 
 </body>
+
 </html>
-```
