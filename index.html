@@ -15,7 +15,74 @@
 <body>
 
     <!-- BACKGROUND -->
-    <div class="background-glow"></div>
+    <!-- ANIMATED BACKGROUND -->
+<div class="animated-background">
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <svg class="light-trails" viewBox="0 0 1600 900" preserveAspectRatio="none">
+
+        <defs>
+
+            <filter id="blur">
+                <feGaussianBlur stdDeviation="5"/>
+            </filter>
+
+            <filter id="heavyBlur">
+                <feGaussianBlur stdDeviation="18"/>
+            </filter>
+
+        </defs>
+
+        <!-- Main glowing trails -->
+
+        <path
+            class="trail glow"
+            d="M-100 230 C180 330 300 80 560 250 S950 390 1150 170 S1450 80 1750 -40"
+        />
+
+        <path
+            class="trail"
+            d="M-100 230 C180 330 300 80 560 250 S950 390 1150 170 S1450 80 1750 -40"
+        />
+
+        <path
+            class="trail glow"
+            d="M-100 650 C180 530 360 760 600 620 S930 500 1130 650 S1450 760 1750 550"
+        />
+
+        <path
+            class="trail"
+            d="M-100 650 C180 530 360 760 600 620 S930 500 1130 650 S1450 760 1750 550"
+        />
+
+        <path
+            class="trail glow"
+            d="M-150 430 C100 350 260 480 500 420 S820 300 1080 420 S1400 500 1750 330"
+        />
+
+        <path
+            class="trail"
+            d="M-150 430 C100 350 260 480 500 420 S820 300 1080 420 S1400 500 1750 330"
+        />
+
+    </svg>
+
+    <!-- Tiny particles -->
+
+    <div class="particles">
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+    </div>
+
+</div>
 
     <!-- NAVIGATION -->
     <nav>
