@@ -156,9 +156,9 @@ footer{padding:50px 7vw 30px;border-top:1px solid var(--line)}
   opacity:0;visibility:hidden;transition:.35s;padding:40px
 }
 .lightbox.active{opacity:1;visibility:visible}
-.lightbox-content{width:min(1100px,88vw);max-height:90vh}
-.lightbox-image-wrap{height:75vh;display:grid;place-items:center}
-.lightbox-image-wrap img{max-height:100%;max-width:100%;object-fit:contain}
+.lightbox-content{width:min(1100px,88vw);height:calc(100vh - 80px);max-height:calc(100vh - 80px);display:flex;flex-direction:column;min-height:0}
+.lightbox-image-wrap{flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.lightbox-image-wrap img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}
 .lightbox-caption{display:flex;justify-content:space-between;margin-top:15px;font-size:11px;text-transform:uppercase;letter-spacing:1.5px}
 .lightbox-caption span:first-child{color:#888}
 .lightbox-close,.lightbox-arrow{
@@ -194,7 +194,7 @@ body.light .lightbox-close:hover,body.light .lightbox-arrow:hover{background:#11
   .gallery{grid-template-columns:1fr;grid-auto-rows:auto;gap:12px}.photo,.photo-wide,.photo-tall,.photo-feature{grid-column:span 1;grid-row:span 1;aspect-ratio:4/5;min-height:0}.photo-wide{aspect-ratio:4/3}
   .about-grid,.behind{grid-template-columns:1fr}.behind{padding:25px}
   .contact-buttons{grid-template-columns:1fr}
-  .lightbox{padding:20px}.lightbox-image-wrap{height:70vh}
+  .lightbox{padding:20px}.lightbox-content{width:100%;height:calc(100vh - 40px);max-height:calc(100vh - 40px)}.lightbox-image-wrap{flex:1;min-height:0}
   .lightbox-prev{left:10px}.lightbox-next{right:10px}.lightbox-close{top:12px;right:12px}
   .footer-top{display:block}.footer-top p{margin-top:15px}.footer-bottom{margin-top:45px}
 }
