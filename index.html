@@ -99,9 +99,11 @@ main{position:relative}
 .tool-btn:hover{background:var(--text);color:var(--bg);transform:translateY(-2px)}
 .photo-count{font-size:11px;color:var(--muted);letter-spacing:1px}
 
-.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.photo{position:relative;aspect-ratio:4/3;overflow:hidden;background:#111;cursor:none}
-.photo-wide{grid-column:span 2;aspect-ratio:2/1}
+.gallery{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:8px;gap:14px}
+.photo{position:relative;grid-column:span 4;grid-row:span 48;min-height:0;overflow:hidden;background:#111;cursor:none}
+.photo-wide{grid-column:span 8;grid-row:span 40}
+.photo-tall{grid-row:span 66}
+.photo-feature{grid-column:span 6;grid-row:span 58}
 .photo img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s}
 .photo:hover img{transform:scale(1.06);filter:brightness(.7)}
 .photo-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65),transparent 55%);opacity:.7}
@@ -189,7 +191,7 @@ body.light .lightbox-close:hover,body.light .lightbox-arrow:hover{background:#11
   .controls .icon-btn{width:34px;height:34px}
   .hero{padding:130px 6vw 70px}.hero h1{font-size:18vw}
   .section{padding:90px 6vw}.section-header{display:block}.intro{margin-top:20px}
-  .gallery{grid-template-columns:1fr}.photo-wide{grid-column:span 1;aspect-ratio:4/3}
+  .gallery{grid-template-columns:1fr;grid-auto-rows:auto;gap:12px}.photo,.photo-wide,.photo-tall,.photo-feature{grid-column:span 1;grid-row:span 1;aspect-ratio:4/5;min-height:0}.photo-wide{aspect-ratio:4/3}
   .about-grid,.behind{grid-template-columns:1fr}.behind{padding:25px}
   .contact-buttons{grid-template-columns:1fr}
   .lightbox{padding:20px}.lightbox-image-wrap{height:70vh}
@@ -273,37 +275,37 @@ body.light .lightbox-close:hover,body.light .lightbox-arrow:hover{background:#11
       <div class="photo-info"><span>01</span><span>Brilliant Sky</span></div>
     </article>
 
-    <article class="photo reveal" data-index="1" data-title="Dubai" data-location="Dubai, UAE" data-camera="Canon 80D" data-story="A city frame built around scale, architecture and the Dubai skyline.">
+    <article class="photo photo-tall reveal" data-index="1" data-title="Dubai" data-location="Dubai, UAE" data-camera="Canon 80D" data-story="A city frame built around scale, architecture and the Dubai skyline.">
       <img src="burj-khalifa.jpeg" alt="Burj Khalifa in Dubai" loading="lazy">
       <div class="photo-overlay"></div><div class="photo-center">VIEW</div>
       <div class="photo-info"><span>02</span><span>Dubai</span></div>
     </article>
 
-    <article class="photo reveal" data-index="2" data-title="Sky" data-location="UAE" data-camera="Canon 80D" data-story="A minimal frame where the sky becomes the entire subject.">
+    <article class="photo photo reveal" data-index="2" data-title="Sky" data-location="UAE" data-camera="Canon 80D" data-story="A minimal frame where the sky becomes the entire subject.">
       <img src="clean-sky.jpg" alt="Clean sky" loading="lazy">
       <div class="photo-overlay"></div><div class="photo-center">VIEW</div>
       <div class="photo-info"><span>03</span><span>Sky</span></div>
     </article>
 
-    <article class="photo reveal" data-index="3" data-title="Inside Emirates" data-location="UAE" data-camera="Canon 80D" data-story="An interior frame exploring structure, symmetry and atmosphere.">
+    <article class="photo photo reveal" data-index="3" data-title="Inside Emirates" data-location="UAE" data-camera="Canon 80D" data-story="An interior frame exploring structure, symmetry and atmosphere.">
       <img src="inside-emirates.jpeg" alt="Inside Emirates" loading="lazy">
       <div class="photo-overlay"></div><div class="photo-center">VIEW</div>
       <div class="photo-info"><span>04</span><span>Inside Emirates</span></div>
     </article>
 
-    <article class="photo reveal" data-index="4" data-title="Red Sky" data-location="UAE" data-camera="Canon 80D" data-story="A dramatic sky captured during a short window of changing color.">
+    <article class="photo photo reveal" data-index="4" data-title="Red Sky" data-location="UAE" data-camera="Canon 80D" data-story="A dramatic sky captured during a short window of changing color.">
       <img src="red-sky.jpeg" alt="Red sky" loading="lazy">
       <div class="photo-overlay"></div><div class="photo-center">VIEW</div>
       <div class="photo-info"><span>05</span><span>Red Sky</span></div>
     </article>
 
-    <article class="photo reveal" data-index="5" data-title="Night Vibe" data-location="UAE" data-camera="Canon 80D" data-story="A low-light frame built around atmosphere rather than detail.">
+    <article class="photo photo reveal" data-index="5" data-title="Night Vibe" data-location="UAE" data-camera="Canon 80D" data-story="A low-light frame built around atmosphere rather than detail.">
       <img src="vibe-night.jpeg" alt="Night vibe" loading="lazy">
       <div class="photo-overlay"></div><div class="photo-center">VIEW</div>
       <div class="photo-info"><span>06</span><span>Night Vibe</span></div>
     </article>
 
-    <article class="photo reveal" data-index="6" data-title="Night Dubai" data-location="Dubai, UAE" data-camera="Canon 80D" data-story="Dubai after dark, using city lights to create depth and contrast.">
+    <article class="photo photo-tall reveal" data-index="6" data-title="Night Dubai" data-location="Dubai, UAE" data-camera="Canon 80D" data-story="Dubai after dark, using city lights to create depth and contrast.">
       <img src="night-dubai.jpeg" alt="Dubai at night" loading="lazy">
       <div class="photo-overlay"></div><div class="photo-center">VIEW</div>
       <div class="photo-info"><span>07</span><span>Night Dubai</span></div>
@@ -313,6 +315,42 @@ body.light .lightbox-close:hover,body.light .lightbox-arrow:hover{background:#11
       <img src="plane-nightview.jpeg" alt="Night view from a plane" loading="lazy">
       <div class="photo-overlay"></div><div class="photo-center">VIEW</div>
       <div class="photo-info"><span>08</span><span>Night View</span></div>
+    </article>
+
+    <article class="photo photo-tall reveal" data-index="8" data-title="Dubai After Dark" data-location="Dubai, UAE" data-camera="iPhone" data-story="The Burj Khalifa glowing against a deep night sky, framed from the city below.">
+      <img src="dubai-after-dark.jpeg" alt="Dubai after dark" loading="lazy">
+      <div class="photo-overlay"></div><div class="photo-center">VIEW</div>
+      <div class="photo-info"><span>09</span><span>Dubai After Dark</span></div>
+    </article>
+
+    <article class="photo photo-feature reveal" data-index="9" data-title="Dubai Creek" data-location="Dubai, UAE" data-camera="iPhone" data-story="A bright daytime cityscape framed from the water, with the skyline stretching across the horizon.">
+      <img src="dubai-creek.jpeg" alt="Dubai Creek" loading="lazy">
+      <div class="photo-overlay"></div><div class="photo-center">VIEW</div>
+      <div class="photo-info"><span>10</span><span>Dubai Creek</span></div>
+    </article>
+
+    <article class="photo photo-tall reveal" data-index="10" data-title="Palm & City" data-location="Dubai, UAE" data-camera="iPhone" data-story="A palm tree becomes the foreground against Dubai’s illuminated skyline.">
+      <img src="palm-city-night.jpeg" alt="Palm & city" loading="lazy">
+      <div class="photo-overlay"></div><div class="photo-center">VIEW</div>
+      <div class="photo-info"><span>11</span><span>Palm & City</span></div>
+    </article>
+
+    <article class="photo photo-tall reveal" data-index="11" data-title="Golden Clouds" data-location="UAE" data-camera="iPhone" data-story="Warm evening light breaking through a textured layer of clouds.">
+      <img src="golden-clouds.jpeg" alt="Golden clouds" loading="lazy">
+      <div class="photo-overlay"></div><div class="photo-center">VIEW</div>
+      <div class="photo-info"><span>12</span><span>Golden Clouds</span></div>
+    </article>
+
+    <article class="photo photo-feature reveal" data-index="12" data-title="Kerala Sunset" data-location="Kerala, India" data-camera="iPhone" data-story="A quiet sunset framed through the branches, with warm light reflecting across the landscape.">
+      <img src="kerala-sunset.jpeg" alt="Kerala sunset" loading="lazy">
+      <div class="photo-overlay"></div><div class="photo-center">VIEW</div>
+      <div class="photo-info"><span>13</span><span>Kerala Sunset</span></div>
+    </article>
+
+    <article class="photo photo-tall reveal" data-index="13" data-title="Evening Reflection" data-location="Kerala, India" data-camera="iPhone" data-story="Sunlight reflecting across calm water beneath a dramatic evening sky.">
+      <img src="evening-reflection.jpeg" alt="Evening reflection" loading="lazy">
+      <div class="photo-overlay"></div><div class="photo-center">VIEW</div>
+      <div class="photo-info"><span>14</span><span>Evening Reflection</span></div>
     </article>
   </div>
 </section>
