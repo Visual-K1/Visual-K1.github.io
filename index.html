@@ -1,782 +1,688 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Visual K — Visual Creator and Photographer">
-<title>Visual K | Visual Creator</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-html{
-    scroll-behavior:smooth;
-}
+<meta
+    name="description"
+    content="K1SHNN — Visual Creator and Photographer"
+>
 
-body{
-    background:#050505;
-    color:#f5f5f5;
-    font-family:Arial, Helvetica, sans-serif;
-    overflow-x:hidden;
-}
+<title>K1SHNN | Visual Creator</title>
 
-/* LOADER */
-.loader{
-    position:fixed;
-    inset:0;
-    background:#050505;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:9999;
-    transition:opacity .7s ease, visibility .7s ease;
-}
+<link
+    rel="stylesheet"
+    href="style.css"
+>
 
-.loader.hidden{
-    opacity:0;
-    visibility:hidden;
-}
-
-.loader-text{
-    font-size:12px;
-    letter-spacing:6px;
-    text-transform:uppercase;
-}
-
-/* ANIMATED BACKGROUND */
-body::before{
-    content:"";
-    position:fixed;
-    width:700px;
-    height:700px;
-    border-radius:50%;
-    background:radial-gradient(
-        circle,
-        rgba(255,255,255,.08),
-        transparent 65%
-    );
-    top:-300px;
-    right:-250px;
-    pointer-events:none;
-    z-index:-2;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    width:500px;
-    height:500px;
-    border-radius:50%;
-    background:radial-gradient(
-        circle,
-        rgba(255,255,255,.05),
-        transparent 70%
-    );
-    bottom:-250px;
-    left:-200px;
-    pointer-events:none;
-    z-index:-2;
-}
-
-/* NAV */
-nav{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    padding:22px 6%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    z-index:1000;
-    background:linear-gradient(
-        to bottom,
-        rgba(5,5,5,.9),
-        transparent
-    );
-}
-
-.logo{
-    font-size:17px;
-    font-weight:bold;
-    letter-spacing:3px;
-}
-
-nav ul{
-    display:flex;
-    gap:28px;
-    list-style:none;
-}
-
-nav a{
-    color:#aaa;
-    text-decoration:none;
-    font-size:12px;
-    letter-spacing:1px;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#fff;
-}
-
-/* HERO */
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    padding:0 8%;
-    position:relative;
-}
-
-.hero-content{
-    max-width:850px;
-}
-
-.hero-label{
-    color:#888;
-    font-size:11px;
-    letter-spacing:5px;
-    text-transform:uppercase;
-    margin-bottom:25px;
-}
-
-.hero h1{
-    font-size:clamp(55px,10vw,125px);
-    line-height:.9;
-    letter-spacing:-6px;
-    margin-bottom:35px;
-}
-
-.hero h1 span{
-    color:#777;
-}
-
-.hero p{
-    max-width:560px;
-    color:#999;
-    line-height:1.8;
-    font-size:15px;
-}
-
-.hero-line{
-    margin-top:45px;
-    width:100px;
-    height:1px;
-    background:#fff;
-}
-
-/* SECTION */
-section{
-    padding:120px 7%;
-}
-
-.section-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
-    margin-bottom:50px;
-}
-
-.section-title{
-    font-size:40px;
-    letter-spacing:-2px;
-}
-
-.section-meta{
-    color:#666;
-    font-size:11px;
-    letter-spacing:2px;
-}
-
-/* GALLERY */
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(12,minmax(0,1fr));
-    gap:18px;
-}
-
-/* LANDSCAPE CARDS */
-.photo{
-    grid-column:span 4;
-    position:relative;
-    aspect-ratio:4/3;
-    overflow:hidden;
-    background:#111;
-    cursor:pointer;
-}
-
-.photo-wide{
-    grid-column:span 8;
-    aspect-ratio:16/9;
-}
-
-.photo-feature{
-    grid-column:span 6;
-    aspect-ratio:16/10;
-}
-
-.photo img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    background:#090909;
-    display:block;
-    transition:transform .7s ease;
-}
-
-.photo:hover img{
-    transform:scale(1.035);
-}
-
-.photo-info{
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    padding:25px;
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,.85),
-        transparent
-    );
-    opacity:0;
-    transform:translateY(10px);
-    transition:.4s ease;
-}
-
-.photo:hover .photo-info{
-    opacity:1;
-    transform:translateY(0);
-}
-
-.photo-info h3{
-    font-size:16px;
-    margin-bottom:6px;
-}
-
-.photo-info p{
-    color:#aaa;
-    font-size:11px;
-    letter-spacing:1px;
-}
-
-/* ABOUT */
-.about{
-    max-width:850px;
-}
-
-.about p{
-    color:#aaa;
-    line-height:2;
-    font-size:17px;
-}
-
-/* BEHIND THE SHOT */
-.behind{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:70px;
-    align-items:center;
-}
-
-.behind-text h2{
-    font-size:45px;
-    margin-bottom:25px;
-    letter-spacing:-2px;
-}
-
-.behind-text p{
-    color:#999;
-    line-height:1.9;
-    font-size:15px;
-}
-
-.behind-card{
-    border:1px solid #222;
-    padding:35px;
-    background:#090909;
-}
-
-.behind-card span{
-    display:block;
-    color:#666;
-    font-size:10px;
-    letter-spacing:3px;
-    margin-bottom:10px;
-}
-
-.behind-card strong{
-    font-size:16px;
-}
-
-/* CONTACT */
-.contact{
-    text-align:center;
-    padding-bottom:150px;
-}
-
-.contact h2{
-    font-size:60px;
-    letter-spacing:-3px;
-    margin-bottom:25px;
-}
-
-.contact p{
-    color:#777;
-    margin-bottom:35px;
-}
-
-.contact-links{
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    flex-wrap:wrap;
-}
-
-.contact-links a{
-    color:#fff;
-    text-decoration:none;
-    border-bottom:1px solid #555;
-    padding-bottom:6px;
-    font-size:12px;
-    letter-spacing:1px;
-    transition:.3s;
-}
-
-.contact-links a:hover{
-    border-color:#fff;
-}
-
-/* FOOTER */
-footer{
-    border-top:1px solid #161616;
-    padding:25px 7%;
-    display:flex;
-    justify-content:space-between;
-    color:#555;
-    font-size:10px;
-    letter-spacing:1px;
-}
-
-/* LIGHTBOX */
-.lightbox{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.96);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    z-index:5000;
-    padding:40px;
-}
-
-.lightbox.active{
-    display:flex;
-}
-
-.lightbox img{
-    max-width:90vw;
-    max-height:85vh;
-    object-fit:contain;
-}
-
-.close{
-    position:absolute;
-    top:25px;
-    right:35px;
-    font-size:30px;
-    color:#aaa;
-    cursor:pointer;
-}
-
-.close:hover{
-    color:#fff;
-}
-
-.lightbox-info{
-    position:absolute;
-    bottom:25px;
-    left:35px;
-    color:#aaa;
-    font-size:11px;
-    letter-spacing:1px;
-}
-
-/* REVEAL */
-.reveal{
-    opacity:0;
-    transform:translateY(30px);
-    transition:opacity .8s ease, transform .8s ease;
-}
-
-.reveal.visible{
-    opacity:1;
-    transform:translateY(0);
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-
-    .photo{
-        grid-column:span 6;
-    }
-
-    .photo-wide,
-    .photo-feature{
-        grid-column:span 12;
-    }
-
-    .behind{
-        grid-template-columns:1fr;
-    }
-
-}
-
-@media(max-width:700px){
-
-    nav{
-        padding:18px 5%;
-    }
-
-    nav ul{
-        gap:14px;
-    }
-
-    .hero{
-        padding:0 6%;
-    }
-
-    .hero h1{
-        font-size:65px;
-        letter-spacing:-4px;
-    }
-
-    section{
-        padding:90px 6%;
-    }
-
-    .section-head{
-        display:block;
-    }
-
-    .section-meta{
-        margin-top:12px;
-    }
-
-    .gallery{
-        grid-template-columns:1fr;
-    }
-
-    .photo,
-    .photo-wide,
-    .photo-feature{
-        grid-column:span 1;
-        aspect-ratio:4/3;
-    }
-
-    .photo-info{
-        opacity:1;
-        transform:none;
-    }
-
-    .contact h2{
-        font-size:45px;
-    }
-
-    footer{
-        flex-direction:column;
-        gap:10px;
-    }
-}
-</style>
 </head>
+
 
 <body>
 
-<!-- LOADER -->
-<div class="loader">
-    <div class="loader-text">Visual K</div>
+
+<!-- =========================================================
+     ANIMATED BACKGROUND
+========================================================= -->
+
+<div class="animated-background">
+
+    <div class="ambient ambient-one"></div>
+
+    <div class="ambient ambient-two"></div>
+
+    <div class="ambient-three"></div>
+
+    <div class="light-sweep"></div>
+
+    <div class="particles"></div>
+
+
+    <!-- LIGHT TRAILS -->
+
+    <svg
+        class="light-trails"
+        viewBox="0 0 1000 1000"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+    >
+
+        <defs>
+
+            <filter id="blur">
+
+                <feGaussianBlur
+                    stdDeviation="5"
+                />
+
+            </filter>
+
+        </defs>
+
+
+        <path
+            class="trail"
+            d="M-100 750 C250 500 400 850 1100 300"
+        />
+
+        <path
+            class="trail glow"
+            d="M-100 750 C250 500 400 850 1100 300"
+        />
+
+
+        <path
+            class="trail"
+            d="M-100 900 C250 650 600 700 1100 100"
+        />
+
+        <path
+            class="trail glow"
+            d="M-100 900 C250 650 600 700 1100 100"
+        />
+
+    </svg>
+
 </div>
 
-<!-- NAV -->
-<nav>
-    <div class="logo">VISUAL K</div>
 
-    <ul>
-        <li><a href="#work">WORK</a></li>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#contact">CONTACT</a></li>
-    </ul>
+
+<!-- =========================================================
+     CUSTOM CURSOR
+========================================================= -->
+
+<div class="cursor-dot"></div>
+
+<div class="cursor-ring"></div>
+
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <a
+        href="#top"
+        class="logo"
+    >
+        K1SHNN<span>.</span>
+    </a>
+
+
+    <div class="links">
+
+        <a href="#work">
+            Work
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </div>
+
 </nav>
 
-<!-- HERO -->
-<header class="hero">
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main id="top">
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
 
     <div class="hero-content">
 
-        <div class="hero-label">
-            Visual Creator • Photographer
+        <div class="small hero-label">
+
+            VISUAL CREATOR
+            •
+            PHOTOGRAPHER
+
         </div>
+
 
         <h1>
+
             VISUAL<br>
+
             <span>K.</span>
+
         </h1>
 
-        <p>
+
+        <p class="description">
+
             Capturing nature, cities, people and moments
             through a cinematic perspective.
+
         </p>
 
-        <div class="hero-line"></div>
 
-    </div>
+        <div class="hero-buttons">
 
-</header>
+            <a
+                href="#work"
+                class="button primary"
+            >
+                View Work
+            </a>
 
-<!-- WORK -->
-<section id="work">
 
-    <div class="section-head">
+            <a
+                href="#contact"
+                class="button secondary"
+            >
+                Let's Create
+            </a>
 
-        <div class="section-title">
-            Selected Work
         </div>
 
-        <div class="section-meta">
-            10 FRAMES
-        </div>
-
     </div>
 
-    <div class="gallery">
 
-        <!-- 01 -->
-        <article
-            class="photo photo-feature reveal"
-            data-title="Sky"
-            data-location="UAE"
-            data-camera="Canon 80D"
-        >
-            <img src="clean-sky.jpg" alt="Sky">
+    <a
+        href="#work"
+        class="scroll"
+    >
 
-            <div class="photo-info">
-                <h3>Sky</h3>
-                <p>UAE • Canon 80D</p>
-            </div>
-        </article>
+        <span>↓</span>
 
+        SCROLL TO EXPLORE
 
-        <!-- 02 -->
-        <article
-            class="photo photo-wide reveal"
-            data-title="Dubai After Dark"
-            data-location="Dubai, UAE"
-            data-camera="Canon 80D"
-        >
-            <img src="dubai-after-dark.jpeg" alt="Dubai After Dark">
-
-            <div class="photo-info">
-                <h3>Dubai After Dark</h3>
-                <p>Dubai, UAE • Canon 80D</p>
-            </div>
-        </article>
-
-
-        <!-- 03 -->
-        <article
-            class="photo reveal"
-            data-title="Dubai Creek"
-            data-location="Dubai, UAE"
-            data-camera="iPhone"
-        >
-            <img src="dubai-creek.jpeg" alt="Dubai Creek">
-
-            <div class="photo-info">
-                <h3>Dubai Creek</h3>
-                <p>Dubai, UAE • iPhone</p>
-            </div>
-        </article>
-
-
-        <!-- 04 -->
-        <article
-            class="photo reveal"
-            data-title="Palm & City"
-            data-location="Dubai, UAE"
-            data-camera="iPhone"
-        >
-            <img src="palm-city-night.jpeg" alt="Palm and City">
-
-            <div class="photo-info">
-                <h3>Palm & City</h3>
-                <p>Dubai, UAE • iPhone</p>
-            </div>
-        </article>
-
-
-        <!-- 05 -->
-        <article
-            class="photo photo-wide reveal"
-            data-title="Golden Clouds"
-            data-location="UAE"
-            data-camera="iPhone"
-        >
-            <img src="golden-clouds.jpeg" alt="Golden Clouds">
-
-            <div class="photo-info">
-                <h3>Golden Clouds</h3>
-                <p>UAE • iPhone</p>
-            </div>
-        </article>
-
-
-        <!-- 06 -->
-        <article
-            class="photo reveal"
-            data-title="Evening Reflection"
-            data-location="Kerala, India"
-            data-camera="iPhone"
-        >
-            <img src="evening-reflection.jpeg" alt="Evening Reflection">
-
-            <div class="photo-info">
-                <h3>Evening Reflection</h3>
-                <p>Kerala, India • iPhone</p>
-            </div>
-        </article>
-
-
-        <!-- 07 -->
-        <article
-            class="photo photo-feature reveal"
-            data-title="Dates"
-            data-location="UAE"
-            data-camera="Photography"
-        >
-            <img src="dates.jpg" alt="Dates">
-
-            <div class="photo-info">
-                <h3>Dates</h3>
-                <p>UAE • Photography</p>
-            </div>
-        </article>
-
-
-        <!-- 08 -->
-        <article
-            class="photo reveal"
-            data-title="Defender"
-            data-location="UAE"
-            data-camera="Photography"
-        >
-            <img src="Defender.jpeg" alt="Defender">
-
-            <div class="photo-info">
-                <h3>Defender</h3>
-                <p>UAE • Photography</p>
-            </div>
-        </article>
-
-
-        <!-- 09 -->
-        <article
-            class="photo photo-wide reveal"
-            data-title="Sunset"
-            data-location="UAE"
-            data-camera="Photography"
-        >
-            <img src="Sunset.jpeg" alt="Sunset">
-
-            <div class="photo-info">
-                <h3>Sunset</h3>
-                <p>UAE • Photography</p>
-            </div>
-        </article>
-
-
-        <!-- 10 -->
-        <article
-            class="photo photo-feature reveal"
-            data-title="Natureza"
-            data-location="Nature"
-            data-camera="Photography"
-        >
-            <img src="Natureza.jpeg" alt="Natureza">
-
-            <div class="photo-info">
-                <h3>Natureza</h3>
-                <p>Nature • Photography</p>
-            </div>
-        </article>
-
-    </div>
+    </a>
 
 </section>
 
 
-<!-- ABOUT -->
-<section id="about">
 
-    <div class="section-head">
-        <div class="section-title">
-            About
-        </div>
+<!-- =========================================================
+     WORK
+========================================================= -->
 
-        <div class="section-meta">
-            VISUAL K.
-        </div>
-    </div>
+<section
+    id="work"
+    class="work-section"
+>
 
-    <div class="about reveal">
+    <div class="section">
 
-        <p>
-            Visual K is a visual creator focused on photography,
-            cinematic content and the small details that make
-            ordinary places feel different.
-        </p>
+        <div class="section-header">
 
-    </div>
+            <div>
 
-</section>
+                <div class="small">
+
+                    SELECTED WORK
+
+                </div>
 
 
-<!-- BEHIND THE SHOT -->
-<section>
+                <h2>
 
-    <div class="behind">
+                    Frames.
 
-        <div class="behind-text reveal">
+                </h2>
 
-            <h2>
-                Behind<br>
-                the Shot.
-            </h2>
+            </div>
 
-            <p>
-                Every frame starts with noticing something
-                most people walk past. Light, reflections,
-                weather, architecture and timing all play
-                a part in the final image.
+
+            <p class="intro">
+
+                A collection of moments,
+                places and perspectives
+                captured through my lens.
+
             </p>
 
         </div>
 
 
-        <div class="behind-card reveal">
 
-            <span>
-                APPROACH
-            </span>
+        <!-- PHOTO GRID -->
 
-            <strong>
-                FIND THE FRAME.
-            </strong>
+        <div class="gallery">
+
+
+            <!-- 01 -->
+
+            <article
+                class="photo photo-wide reveal"
+                data-title="Sky"
+                data-location="UAE"
+                data-camera="Canon 80D"
+            >
+
+                <img
+                    src="clean-sky.jpg"
+                    alt="Sky"
+                    loading="lazy"
+                >
+
+
+                <div class="photo-overlay"></div>
+
+
+                <div class="photo-center">
+
+                    VIEW
+
+                </div>
+
+
+                <div class="photo-info">
+
+                    <span>
+                        Sky
+                    </span>
+
+                    <span>
+                        UAE • Canon 80D
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 02 -->
+
+            <article
+                class="photo reveal"
+                data-title="Dubai After Dark"
+                data-location="Dubai, UAE"
+                data-camera="Canon 80D"
+            >
+
+                <img
+                    src="dubai-after-dark.jpeg"
+                    alt="Dubai After Dark"
+                    loading="lazy"
+                >
+
+
+                <div class="photo-overlay"></div>
+
+
+                <div class="photo-center">
+
+                    VIEW
+
+                </div>
+
+
+                <div class="photo-info">
+
+                    <span>
+                        Dubai After Dark
+                    </span>
+
+                    <span>
+                        Canon 80D
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 03 -->
+
+            <article
+                class="photo reveal"
+                data-title="Dubai Creek"
+                data-location="Dubai, UAE"
+                data-camera="iPhone"
+            >
+
+                <img
+                    src="dubai-creek.jpeg"
+                    alt="Dubai Creek"
+                    loading="lazy"
+                >
+
+
+                <div class="photo-overlay"></div>
+
+
+                <div class="photo-center">
+
+                    VIEW
+
+                </div>
+
+
+                <div class="photo-info">
+
+                    <span>
+                        Dubai Creek
+                    </span>
+
+                    <span>
+                        iPhone
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 04 -->
+
+            <article
+                class="photo photo-wide reveal"
+                data-title="Palm & City"
+                data-location="Dubai, UAE"
+                data-camera="iPhone"
+            >
+
+                <img
+                    src="palm-city-night.jpeg"
+                    alt="Palm and City"
+                    loading="lazy"
+                >
+
+
+                <div class="photo-overlay"></div>
+
+
+                <div class="photo-center">
+
+                    VIEW
+
+                </div>
+
+
+                <div class="photo-info">
+
+                    <span>
+                        Palm & City
+                    </span>
+
+                    <span>
+                        iPhone
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 05 -->
+
+            <article
+                class="photo reveal"
+                data-title="Golden Clouds"
+                data-location="UAE"
+                data-camera="iPhone"
+            >
+
+                <img
+                    src="golden-clouds.jpeg"
+                    alt="Golden Clouds"
+                    loading="lazy"
+                >
+
+
+                <div class="photo-overlay"></div>
+
+
+                <div class="photo-center">
+
+                    VIEW
+
+                </div>
+
+
+                <div class="photo-info">
+
+                    <span>
+                        Golden Clouds
+                    </span>
+
+                    <span>
+                        iPhone
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 06 -->
+
+            <article
+                class="photo reveal"
+                data-title="Evening Reflection"
+                data-location="Kerala, India"
+                data-camera="iPhone"
+            >
+
+                <img
+                    src="evening-reflection.jpeg"
+                    alt="Evening Reflection"
+                    loading="lazy"
+                >
+
+
+                <div class="photo-overlay"></div>
+
+
+                <div class="photo-center">
+
+                    VIEW
+
+                </div>
+
+
+                <div class="photo-info">
+
+                    <span>
+                        Evening Reflection
+                    </span>
+
+                    <span>
+                        Kerala • iPhone
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 07 -->
+
+            <article
+                class="photo reveal"
+                data-title="Dates"
+                data-location="UAE"
+                data-camera="Photography"
+            >
+
+                <img
+                    src="dates.jpg"
+                    alt="Dates"
+                    loading="lazy"
+                >
+
+
+                <div class="photo-overlay"></div>
+
+
+                <div class="photo-center">
+
+                    VIEW
+
+                </div>
+
+
+                <div class="photo-info">
+
+                    <span>
+                        Dates
+                    </span>
+
+                    <span>
+                        UAE
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 08 -->
+
+            <article
+                class="photo reveal"
+                data-title="Defender"
+                data-location="UAE"
+                data-camera="Photography"
+            >
+
+                <img
+                    src="Defender.jpeg"
+                    alt="Defender"
+                    loading="lazy"
+                >
+
+
+                <div class="photo-overlay"></div>
+
+
+                <div class="photo-center">
+
+                    VIEW
+
+                </div>
+
+
+                <div class="photo-info">
+
+                    <span>
+                        Defender
+                    </span>
+
+                    <span>
+                        UAE
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 09 -->
+
+            <article
+                class="photo photo-wide reveal"
+                data-title="Sunset"
+                data-location="UAE"
+                data-camera="Photography"
+            >
+
+                <img
+                    src="Sunset.jpeg"
+                    alt="Sunset"
+                    loading="lazy"
+                >
+
+
+                <div class="photo-overlay"></div>
+
+
+                <div class="photo-center">
+
+                    VIEW
+
+                </div>
+
+
+                <div class="photo-info">
+
+                    <span>
+                        Sunset
+                    </span>
+
+                    <span>
+                        UAE
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- 10 -->
+
+            <article
+                class="photo reveal"
+                data-title="Natureza"
+                data-location="Nature"
+                data-camera="Photography"
+            >
+
+                <img
+                    src="Natureza.jpeg"
+                    alt="Natureza"
+                    loading="lazy"
+                >
+
+
+                <div class="photo-overlay"></div>
+
+
+                <div class="photo-center">
+
+                    VIEW
+
+                </div>
+
+
+                <div class="photo-info">
+
+                    <span>
+                        Natureza
+                    </span>
+
+                    <span>
+                        Nature
+                    </span>
+
+                </div>
+
+            </article>
+
 
         </div>
 
@@ -785,169 +691,947 @@ footer{
 </section>
 
 
-<!-- CONTACT -->
-<section id="contact" class="contact">
 
-    <h2>
-        Let's Create.
-    </h2>
+<!-- =========================================================
+     ABOUT
+========================================================= -->
 
-    <p>
-        For shoots, collaborations or creative work.
-    </p>
+<section
+    id="about"
+    class="about"
+>
 
-    <div class="contact-links">
+    <div class="section">
 
-        <a href="mailto:fw.k1shn@example.com">
-            EMAIL
-        </a>
+        <div class="small">
 
-        <a href="https://instagram.com/lwkk1shn" target="_blank">
-            INSTAGRAM
-        </a>
+            ABOUT VISUAL K
 
-        <a href="https://wa.me/971503956792" target="_blank">
-            WHATSAPP
-        </a>
+        </div>
 
-        <a href="tel:+971503956792">
-            CALL
-        </a>
+
+        <div class="about-grid">
+
+
+            <h2>
+
+                Seeing
+                the
+                <span>ordinary</span>
+                differently.
+
+            </h2>
+
+
+            <div>
+
+                <p class="about-text">
+
+                    Visual K is a visual creator focused
+                    on photography, cinematic content and
+                    the small details that make ordinary
+                    places feel different.
+
+                </p>
+
+
+                <p class="about-text">
+
+                    From city lights and architecture to
+                    nature and everyday moments, every frame
+                    starts with finding a perspective worth
+                    remembering.
+
+                </p>
+
+
+                <div class="skills">
+
+                    <div>
+
+                        <span>01</span>
+
+                        Photography
+
+                    </div>
+
+
+                    <div>
+
+                        <span>02</span>
+
+                        Cinematic Content
+
+                    </div>
+
+
+                    <div>
+
+                        <span>03</span>
+
+                        Visual Storytelling
+
+                    </div>
+
+
+                    <div>
+
+                        <span>04</span>
+
+                        Creative Direction
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- FOOTER -->
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section
+    id="contact"
+    class="contact"
+>
+
+    <div class="section">
+
+        <div class="small">
+
+            GET IN TOUCH
+
+        </div>
+
+
+        <h2>
+
+            Let's
+            <span>create.</span>
+
+        </h2>
+
+
+        <p class="contact-description">
+
+            For shoots, collaborations or creative work,
+            feel free to reach out.
+
+        </p>
+
+
+        <div class="contact-buttons">
+
+
+            <!-- EMAIL -->
+
+            <a
+                href="mailto:fw.k1shn@example.com"
+                class="contact-button"
+            >
+
+                <div class="contact-icon">
+                    @
+                </div>
+
+                <div class="contact-name">
+                    Email
+                </div>
+
+                <div class="contact-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+
+            <!-- INSTAGRAM -->
+
+            <a
+                href="https://instagram.com/lwkk1shn"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-button"
+            >
+
+                <div class="contact-icon">
+                    ◎
+                </div>
+
+                <div class="contact-name">
+                    Instagram
+                </div>
+
+                <div class="contact-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+
+            <!-- WHATSAPP -->
+
+            <a
+                href="https://wa.me/971503956792"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-button"
+            >
+
+                <div class="contact-icon">
+                    ◌
+                </div>
+
+                <div class="contact-name">
+                    WhatsApp
+                </div>
+
+                <div class="contact-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+
+            <!-- CALL -->
+
+            <a
+                href="tel:+971503956792"
+                class="contact-button"
+            >
+
+                <div class="contact-icon">
+                    ↗
+                </div>
+
+                <div class="contact-name">
+                    Call
+                </div>
+
+                <div class="contact-arrow">
+                    →
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 <footer>
 
-    <span>
-        © 2026 VISUAL K.
-    </span>
+    <div class="footer-top">
 
-    <span>
-        MADE TO CREATE.
-    </span>
+        <strong>
+            K1SHNN.
+        </strong>
+
+
+        <p>
+            MADE TO CREATE.
+        </p>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 K1SHNN
+        </span>
+
+
+        <a href="#top">
+
+            BACK TO TOP ↑
+
+        </a>
+
+    </div>
 
 </footer>
 
 
-<!-- LIGHTBOX -->
-<div class="lightbox">
 
-    <div class="close">
+<!-- =========================================================
+     LIGHTBOX
+========================================================= -->
+
+<div
+    class="lightbox"
+    id="lightbox"
+    aria-hidden="true"
+>
+
+
+    <button
+        class="lightbox-close"
+        id="lightboxClose"
+        aria-label="Close image"
+    >
+
         ×
+
+    </button>
+
+
+    <button
+        class="lightbox-arrow lightbox-prev"
+        id="lightboxPrev"
+        aria-label="Previous image"
+    >
+
+        ‹
+
+    </button>
+
+
+    <div class="lightbox-content">
+
+
+        <div class="lightbox-image-wrap">
+
+            <img
+                id="lightboxImage"
+                src=""
+                alt=""
+            >
+
+        </div>
+
+
+        <div class="lightbox-caption">
+
+            <span id="lightboxNumber">
+
+                01 / 10
+
+            </span>
+
+
+            <span id="lightboxTitle">
+
+                Sky
+
+            </span>
+
+        </div>
+
     </div>
 
-    <img src="" alt="">
 
-    <div class="lightbox-info">
-        <span class="lightbox-count">01 / 10</span>
-        —
-        <span class="lightbox-title">Sky</span>
-    </div>
+    <button
+        class="lightbox-arrow lightbox-next"
+        id="lightboxNext"
+        aria-label="Next image"
+    >
+
+        ›
+
+    </button>
+
 
 </div>
 
 
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
 <script>
 
-/* LOADER */
-window.addEventListener("load", () => {
 
-    setTimeout(() => {
-        document.querySelector(".loader").classList.add("hidden");
-    }, 700);
+/* =========================================================
+   PARTICLES
+========================================================= */
 
-});
+const particleContainer =
+    document.querySelector(".particles");
 
 
-/* REVEAL ANIMATION */
-const observer = new IntersectionObserver(
-    entries => {
+const particleCount =
+    window.innerWidth < 650
+        ? 12
+        : 25;
 
-        entries.forEach(entry => {
 
-            if(entry.isIntersecting){
+for (
+    let i = 0;
+    i < particleCount;
+    i++
+) {
 
-                entry.target.classList.add("visible");
+    const particle =
+        document.createElement("div");
 
-            }
 
-        });
+    particle.className =
+        "particle";
 
-    },
-    {
-        threshold:.12
+
+    particle.style.left =
+        Math.random() * 100 + "%";
+
+
+    particle.style.animationDuration =
+        (14 + Math.random() * 18) + "s";
+
+
+    particle.style.animationDelay =
+        (-Math.random() * 20) + "s";
+
+
+    const size =
+        1 + Math.random() * 2;
+
+
+    particle.style.width =
+        size + "px";
+
+
+    particle.style.height =
+        size + "px";
+
+
+    particleContainer.appendChild(
+        particle
+    );
+
+}
+
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (
+                    entry.isIntersecting
+                ) {
+
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(element => {
+
+        revealObserver.observe(element);
+
+    });
+
+
+
+/* =========================================================
+   CUSTOM CURSOR
+========================================================= */
+
+const cursorDot =
+    document.querySelector(".cursor-dot");
+
+
+const cursorRing =
+    document.querySelector(".cursor-ring");
+
+
+let mouseX = 0;
+let mouseY = 0;
+
+let ringX = 0;
+let ringY = 0;
+
+
+document.addEventListener(
+    "mousemove",
+    event => {
+
+        mouseX =
+            event.clientX;
+
+        mouseY =
+            event.clientY;
+
+
+        cursorDot.style.left =
+            mouseX + "px";
+
+
+        cursorDot.style.top =
+            mouseY + "px";
+
     }
 );
 
 
-document.querySelectorAll(".reveal").forEach(el => {
-    observer.observe(el);
-});
+function animateCursor() {
+
+    ringX +=
+        (mouseX - ringX) * 0.15;
 
 
-/* LIGHTBOX */
-const photos = [
-    ...document.querySelectorAll(".photo")
-];
-
-const lightbox = document.querySelector(".lightbox");
-const lightboxImage = lightbox.querySelector("img");
-const lightboxTitle = document.querySelector(".lightbox-title");
-const lightboxCount = document.querySelector(".lightbox-count");
-const closeButton = document.querySelector(".close");
+    ringY +=
+        (mouseY - ringY) * 0.15;
 
 
-photos.forEach((photo, index) => {
+    cursorRing.style.left =
+        ringX + "px";
 
-    photo.addEventListener("click", () => {
 
-        const image = photo.querySelector("img");
+    cursorRing.style.top =
+        ringY + "px";
 
-        lightboxImage.src = image.src;
-        lightboxImage.alt = image.alt;
 
-        lightboxTitle.textContent =
-            photo.dataset.title || image.alt;
+    requestAnimationFrame(
+        animateCursor
+    );
 
-        lightboxCount.textContent =
-            `${String(index + 1).padStart(2,"0")} / ${String(photos.length).padStart(2,"0")}`;
+}
 
-        lightbox.classList.add("active");
+
+animateCursor();
+
+
+
+/* =========================================================
+   CURSOR HOVER EFFECT
+========================================================= */
+
+document
+    .querySelectorAll(
+        "a, button, .photo"
+    )
+    .forEach(element => {
+
+        element.addEventListener(
+            "mouseenter",
+            () => {
+
+                cursorRing.style.width =
+                    "48px";
+
+                cursorRing.style.height =
+                    "48px";
+
+                cursorRing.style.borderColor =
+                    "rgba(255,255,255,0.8)";
+
+            }
+        );
+
+
+        element.addEventListener(
+            "mouseleave",
+            () => {
+
+                cursorRing.style.width =
+                    "32px";
+
+                cursorRing.style.height =
+                    "32px";
+
+                cursorRing.style.borderColor =
+                    "rgba(255,255,255,0.5)";
+
+            }
+        );
 
     });
 
-});
 
 
-closeButton.addEventListener("click", () => {
-    lightbox.classList.remove("active");
-});
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+const photos =
+    Array.from(
+        document.querySelectorAll(".photo")
+    );
 
 
-lightbox.addEventListener("click", event => {
+const lightbox =
+    document.querySelector("#lightbox");
 
-    if(event.target === lightbox){
-        lightbox.classList.remove("active");
+
+const lightboxImage =
+    document.querySelector("#lightboxImage");
+
+
+const lightboxTitle =
+    document.querySelector("#lightboxTitle");
+
+
+const lightboxNumber =
+    document.querySelector("#lightboxNumber");
+
+
+const lightboxClose =
+    document.querySelector("#lightboxClose");
+
+
+const lightboxPrev =
+    document.querySelector("#lightboxPrev");
+
+
+const lightboxNext =
+    document.querySelector("#lightboxNext");
+
+
+let currentIndex = 0;
+
+
+
+/* OPEN LIGHTBOX */
+
+function openLightbox(index) {
+
+    currentIndex = index;
+
+
+    const photo =
+        photos[currentIndex];
+
+
+    const image =
+        photo.querySelector("img");
+
+
+    lightboxImage.src =
+        image.src;
+
+
+    lightboxImage.alt =
+        image.alt;
+
+
+    lightboxTitle.textContent =
+        photo.dataset.title ||
+        image.alt;
+
+
+    lightboxNumber.textContent =
+        `${String(currentIndex + 1).padStart(2,"0")} / ${String(photos.length).padStart(2,"0")}`;
+
+
+    lightbox.classList.add(
+        "active"
+    );
+
+
+    lightbox.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+
+    document.body.classList.add(
+        "lightbox-open"
+    );
+
+}
+
+
+
+/* CLOSE LIGHTBOX */
+
+function closeLightbox() {
+
+    lightbox.classList.remove(
+        "active"
+    );
+
+
+    lightbox.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    document.body.classList.remove(
+        "lightbox-open"
+    );
+
+}
+
+
+
+/* NEXT IMAGE */
+
+function nextImage() {
+
+    currentIndex =
+        (currentIndex + 1)
+        % photos.length;
+
+
+    openLightbox(
+        currentIndex
+    );
+
+}
+
+
+
+/* PREVIOUS IMAGE */
+
+function previousImage() {
+
+    currentIndex =
+        (currentIndex - 1 + photos.length)
+        % photos.length;
+
+
+    openLightbox(
+        currentIndex
+    );
+
+}
+
+
+
+/* PHOTO CLICK */
+
+photos.forEach(
+    (photo, index) => {
+
+        photo.addEventListener(
+            "click",
+            () => {
+
+                openLightbox(index);
+
+            }
+        );
+
     }
+);
 
-});
 
 
-document.addEventListener("keydown", event => {
+/* BUTTONS */
 
-    if(event.key === "Escape"){
-        lightbox.classList.remove("active");
+lightboxClose.addEventListener(
+    "click",
+    closeLightbox
+);
+
+
+lightboxNext.addEventListener(
+    "click",
+    nextImage
+);
+
+
+lightboxPrev.addEventListener(
+    "click",
+    previousImage
+);
+
+
+
+/* CLICK OUTSIDE IMAGE */
+
+lightbox.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target === lightbox
+        ) {
+
+            closeLightbox();
+
+        }
+
     }
+);
 
-});
 
+
+/* KEYBOARD CONTROLS */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            !lightbox.classList.contains(
+                "active"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeLightbox();
+
+        }
+
+
+        if (
+            event.key === "ArrowRight"
+        ) {
+
+            nextImage();
+
+        }
+
+
+        if (
+            event.key === "ArrowLeft"
+        ) {
+
+            previousImage();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   TOUCH SWIPE
+========================================================= */
+
+let touchStartX = 0;
+
+
+lightbox.addEventListener(
+    "touchstart",
+    event => {
+
+        touchStartX =
+            event.changedTouches[0].screenX;
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+lightbox.addEventListener(
+    "touchend",
+    event => {
+
+        const touchEndX =
+            event.changedTouches[0].screenX;
+
+
+        const difference =
+            touchStartX - touchEndX;
+
+
+        if (
+            Math.abs(difference) < 50
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            difference > 0
+        ) {
+
+            nextImage();
+
+        } else {
+
+            previousImage();
+
+        }
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+if (
+    window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches
+) {
+
+    document
+        .querySelectorAll(".reveal")
+        .forEach(element => {
+
+            element.classList.add(
+                "visible"
+            );
+
+        });
+
+}
 
 </script>
 
+
 </body>
+
 </html>
-```
